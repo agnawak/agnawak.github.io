@@ -14,4 +14,8 @@ body{
     text-align: center;
     justify-content: center;
     height: 100vh;
+    background-image: url('leserrafirm.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: aliceblue;
 }
