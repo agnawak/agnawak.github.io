@@ -10,11 +10,16 @@
     <h1>There is a free website all along but i took it for granted...</h1>
     <audio src="song.mp3"></audio>
     <script>
-        window.addEventListener("DOMContentLoaded", event => {
-          const audio = document.querySelector("audio");
-          audio.volume = 0.2;
-          audio.play();
-        });
+         var source = "song.mp3"
+         var audio = document.createElement("audio");
+         //
+         audio.autoplay = true;
+         //
+         audio.load()
+         audio.addEventListener("load", function() { 
+             audio.play(); 
+         }, true);
+         audio.src = source;
     </script>
 </body>
 </html>
