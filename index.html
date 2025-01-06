@@ -5,21 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body onload="enableAutoplay()">
+<body>
     <br>
     <h1>There is a free website all along but i took it for granted...</h1>
-    <audio id="myAudio" controls>    
-        <source src="song.mp3" type="audio/mpeg">
-    </audio>
-    <button onclick="myFunction()">Try it</button>
-
-    <p id="demo">see this</p>
+    <audio src="https://www.bensound.com/bensound-music/bensound-moose.mp3"></audio>
     <script>
-        var x = document.getElementById("myAudio");
-        function enableAutoplay() { 
-          x.autoplay = true;
-          x.load();
-        }
+        window.addEventListener("DOMContentLoaded", event => {
+          const audio = document.querySelector("audio");
+          audio.volume = 0.2;
+          audio.play();
+        });
     </script>
 </body>
 </html>
