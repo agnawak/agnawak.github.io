@@ -1,0 +1,64 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST">
+    <div class="mb-3">
+        <th>Title</th>
+        <input class="form-control" name="title" placeholder="Test Case Title" required>
+    </div>
+    <div class="mb-3">
+        <th>Hadware Required?</th>
+        <select class="form-select" name="hardware_required" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <th>Hardware</th>
+        <select class="form-select" name="hardware" multiple required>
+            <option value="M310e">M310e</option>
+            <option value="M4x">M4x</option>
+            <option value="M1288">M1288</option>
+            <option value="M480">M480</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <th>OS</th>
+         <select class="form-select" name="os">
+            <option>Windows 11 - English</option>
+            <option>Windows 11 - Mandarin</option>
+            <option>Windows 10 - English</option>
+            <option>Windows Server 2016</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <th>Protocol</th>
+         <select class="form-select" name="protocol" multiple required>
+            <option>USB</option>
+            <option>Net</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <th>Priority</th>
+         <select class="form-select" name="priority" multiple required>
+            <option>Urgent</option>
+            <option>Not urgent</option>
+        </select>
+    </div>
+    <!-- <div class="mb-3">
+        <textarea class="form-control" name="steps" placeholder="Steps" required></textarea>
+    </div> -->
+    <!-- <div class="mb-3">
+        <textarea class="form-control" name="expected_result" placeholder="Expected Result" required> </textarea>
+    </div> -->
+    <div class="mb-3">
+        <th>state</th>
+        <select class="form-select" name="state">
+            <option>Ready</option>
+            <option>Incomplete</option>
+            <option>depreciated</option>
+        </select>
+    </div>
+    <button class="btn btn-success">Add Test Case</button>
+</form>
+{% endblock %}

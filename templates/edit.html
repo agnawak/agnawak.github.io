@@ -1,0 +1,57 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST">
+    <th>Title</th>
+    <div class="mb-3"><input class="form-control" name="title" value="{{ case.title }}" required></div>
+    <div class="mb-3">
+        <select class="form-select" name="os">
+            <option {% if case.state == 'Windows 11 - English' %}selected{% endif %}>Windows 11 - English</option>
+            <option {% if case.state == 'Windows 11 - Mandarin' %}selected{% endif %}>Windows 11 - Mandarin</option>
+            <option {% if case.state == 'Windows 10 - English' %}selected{% endif %}>Windows 10 - English</option>
+            <option {% if case.state == 'Windows Server 2016' %}selected{% endif %}>Windows Server 2016</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <th>Hadware Required?</th>
+        <select class="form-select" name="hardware_required" required>
+            <option value="Yes" {% if case.hardware_required == 'Yes' %}selected{% endif %}>Yes</option>
+            <option value="No" {% if case.hardware_required == 'No' %}selected{% endif %}>No</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <th>Hardware</th>
+        <select class="form-select" name="hardware" multiple required>
+            <option value="M310e" {% if 'M310e' in case.hardware %}selected{% endif %}>M310e</option>
+            <option value="M4x" {% if 'M4x' in case.hardware %}selected{% endif %}>M4x</option>
+            <option value="M1288" {% if 'M1288' in case.hardware %}selected{% endif %}>M1288</option>
+            <option value="M480" {% if 'M480' in case.hardware %}selected{% endif %}>M480</option>
+        </select>
+    </div>
+    <!-- <div class="mb-3"><textarea class="form-control" name="steps" required>{{ case.steps }}</textarea></div>
+    <div class="mb-3"><textarea class="form-control" name="expected_result" required>{{ case.expected_result }}</textarea></div> -->
+    <div class="mb-3">
+        <th>Protocol</th>
+        <select class="form-select" name="protocol" multiple required>
+            <option {% if 'USB' in case.protocol %}selected{% endif %}>USB</option>
+            <option {% if 'Net' in case.protocol %}selected{% endif %}>Net</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <th>Priority</th>
+        <select class="form-select" name="priority" multiple required>
+            <option {% if 'Urgent' in case.priority %}selected{% endif %}>Urgent</option>
+            <option {% if 'Not urgent' in case.priority %}selected{% endif %}>Not urgent</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <th>State</th>
+        <select class="form-select" name="state">
+            <option {% if case.state == 'Ready' %}selected{% endif %}>Ready</option>
+            <option {% if case.state == 'incomplete' %}selected{% endif %}>incomplete</option>
+            <option {% if case.state == 'depreciated' %}selected{% endif %}>depreciated</option>
+        </select>
+    </div>
+    <button class="btn btn-primary">Update Test Case</button>
+</form>
+{% endblock %}

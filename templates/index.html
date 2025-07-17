@@ -1,0 +1,34 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<a class="btn btn-primary mb-3" href="{{ url_for('add') }}">Add Test Case</a>
+<table class="table table-bordered">
+    <tr>
+        <th>Title</th>
+        <th>OS</th>
+        <th>hardware_required</th>
+        <th>hardware</th>
+        <th>Protocol</th>
+        <th>Priority</th>
+        <th>State</th>
+        <!-- <th>Steps</th> -->
+        <th>Actions</th>
+    </tr>
+    {% for case in testcases %}
+    <tr>
+        <td>{{ case.title }}</td>
+        <td>{{ case.os }}</td>
+        <td>{{ case.hardware_required }}</td>
+        <td>{{ case.hardware.replace(',', '<br>') | safe }}</td>
+        <td>{{ case.protocol.replace(',', '<br>') | safe }}</td>
+        <td>{{ case.priority.replace(',', '<br>') | safe }}</td>
+        <td>{{ case.state }}</td>
+        <!-- <td>{{ case.steps }}</td> -->
+        <td>
+            <a class="btn btn-sm btn-info" href="{{ url_for('edit', id=case.id) }}">Edit</a>
+            <a class="btn btn-sm btn-danger" href="{{ url_for('delete', id=case.id) }}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
